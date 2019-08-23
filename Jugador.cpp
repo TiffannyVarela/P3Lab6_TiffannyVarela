@@ -20,7 +20,7 @@ class Jugador{
 		}
 		
 		string getNombre(){
-			return nombre;
+			return this->nombre;
 		}
 		
 		void setNombre(string nombre){
@@ -28,7 +28,7 @@ class Jugador{
 		}
 		
 		string getDorsal(){
-			return dorsal;
+			return this->dorsal;
 		}
 		
 		void setDorsal(string dorsal){
@@ -36,7 +36,7 @@ class Jugador{
 		}
 		
 		string getPais_origen(){
-			return pais_origen;
+			return this->pais_origen;
 		}
 		
 		void setPais_origen(string pais_origen){

@@ -8,16 +8,16 @@ using namespace std;
 
 class Liga{
 	protected:
-		string nombre, dorsal, pais_origen;
+		string nombre, pais;
+		vector <Equipo*> equipos;
 		
 	public:
-		Jugador(){
+		Liga(){
 		}
 		
-		Jugador(string nombre, string dorsal, string pais_origen){
+		Liga(string nombre, string pais){
 			this->nombre=nombre;
-			this->dorsal=dorsal;
-			this->pais_origen=pais_origen;
+			this->pais=pais;
 		}
 		
 		string getNombre(){
@@ -28,20 +28,24 @@ class Liga{
 			this->nombre.assign(nombre);
 		}
 		
-		string getDorsal(){
-			return dorsal;
+		string getPais(){
+			return this->pais;
 		}
 		
-		void setDorsal(string dorsal){
-			this->dorsal.assign(dorsal);
+		void setPais(string pais){
+			this->pais.assign(pais);
 		}
 		
-		string getPais_origen(){
-			return pais_origen;
+		vector <Equipo*> getEquipos(){
+			return this->equipos;
 		}
 		
-		void setPais_origen(string pais_origen){
-			this->pais_origen.assign(pais_origen);
+		void setEquipo(Equipo* equipo){
+			equipos.push_back(equipo);
+		}
+		
+		void remEquipo(int p){
+			equipos.erase(equipos.begin()+p);
 		}
 };
 

@@ -32,7 +32,7 @@ class Equipo{
 		}
 		
 		string getNombre(){
-			return nombre;
+			return this->nombre;
 		}
 		
 		void setNombre(string nombre){
@@ -40,7 +40,7 @@ class Equipo{
 		}
 		
 		int getAnio(){
-			return anio;
+			return this->anio;
 		}
 		
 		void setAnio(int anio){
@@ -48,7 +48,7 @@ class Equipo{
 		}
 		
 		int getP_j(){
-			return p_j;
+			return this->p_j;
 		}
 		
 		void setP_j(int p_j){
@@ -56,7 +56,7 @@ class Equipo{
 		}
 		
 		int getP_g(){
-			return p_g;
+			return this->p_g;
 		}
 		
 		void setP_g(int p_g){
@@ -64,7 +64,7 @@ class Equipo{
 		}
 		
 		int getP_p(){
-			return p_p;
+			return this->p_p;
 		}
 		
 		void setP_p(int p_p){
@@ -72,7 +72,7 @@ class Equipo{
 		}
 		
 		int getP_e(){
-			return p_e;
+			return this->p_e;
 		}
 		
 		void setP_e(int p_e){
@@ -80,7 +80,7 @@ class Equipo{
 		}
 		
 		int getG_f(){
-			return g_f;
+			return this->g_f;
 		}
 		
 		void setG_f(int g_f){
@@ -88,7 +88,7 @@ class Equipo{
 		}
 		
 		int getG_c(){
-			return g_c;
+			return this->g_c;
 		}
 		
 		void setG_c(int g_c){
@@ -96,7 +96,7 @@ class Equipo{
 		}
 		
 		int getD_g(){
-			return d_g;
+			return this->d_g;
 		}
 		
 		void setD_g(int d_g){
@@ -104,7 +104,7 @@ class Equipo{
 		}
 		
 		int getGoles(){
-			return goles;
+			return this->goles;
 		}
 		
 		void setGoles(int goles){
@@ -112,7 +112,7 @@ class Equipo{
 		}
 		
 		int getPuntos(){
-			return puntos;
+			return this->puntos;
 		}
 		
 		void setPuntos(int puntos){
@@ -120,7 +120,7 @@ class Equipo{
 		}
 		
 		vector <Jugador*> getJugadores(){
-			return jugadores;
+			return this->jugadores;
 		}
 		
 		void setComputadora (Jugador* jugador){
