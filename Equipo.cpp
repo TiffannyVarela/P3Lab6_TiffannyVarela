@@ -9,8 +9,8 @@ using namespace std;
 
 class Equipo{
 	protected:
-		string nombre;
-		int anio, p_j, p_g, p_p, p_e, g_f, g_c, d_g, goles, puntos;
+		string nombre,anio;
+		int p_j, p_g, p_p, p_e, g_f, g_c, d_g, goles, puntos;
 		vector <Jugador*> jugadores;
 		
 	public:
@@ -27,7 +27,7 @@ class Equipo{
 			g_f=0;//goles a favor
 			g_c=0;//goles en contra
 			d_g=0;//diferencia de goles
-			goles=0;
+			//goles=0;
 			puntos=0;
 		}
 		
@@ -39,11 +39,11 @@ class Equipo{
 			this->nombre.assign(nombre);
 		}
 		
-		int getAnio(){
+		string getAnio(){
 			return this->anio;
 		}
 		
-		void setAnio(int anio){
+		void setAnio(string anio){
 			this->anio=anio;
 		}
 		
@@ -103,14 +103,14 @@ class Equipo{
 			this->d_g=d_g;
 		}
 		
-		int getGoles(){
+	/*	int getGoles(){
 			return this->goles;
 		}
 		
 		void setGoles(int goles){
 			this->goles=goles;
 		}
-		
+	*/
 		int getPuntos(){
 			return this->puntos;
 		}
@@ -129,6 +129,18 @@ class Equipo{
 		
 		void remJugador(int p){
 			jugadores.erase(jugadores.begin()+p);
+		}
+		
+		void printEquipo(){
+			cout<<"Nombre: "<<nombre<<endl;
+			cout<<"Anio: "<<anio<<endl;
+			for(int i=0; i<jugadores.size(); i++){
+				cout<<"Num: "<<i<<endl;
+				cout<<jugadores.at(i)->getNombre();
+			}
+		}
+		
+		~Equipo(){
 		}
 };
 

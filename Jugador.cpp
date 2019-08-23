@@ -42,6 +42,9 @@ class Jugador{
 		void setPais_origen(string pais_origen){
 			this->pais_origen.assign(pais_origen);
 		}
+		
+		~Jugador(){
+		}
 };
 
 #endif

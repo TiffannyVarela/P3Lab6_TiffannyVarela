@@ -47,6 +47,18 @@ class Liga{
 		void remEquipo(int p){
 			equipos.erase(equipos.begin()+p);
 		}
+		
+		void printLiga(){
+			cout<<"Nombre: "<<nombre<<endl;
+			cout<<"Pais: "<<pais<<endl;
+			for(int i=0; i<equipos.size(); i++){
+				cout<<"Num: "<<i<<endl;
+				cout<<equipos.at(i)->getNombre();
+			}
+		}
+		
+		~Liga(){
+		}
 };
 
 #endif

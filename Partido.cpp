@@ -38,6 +38,7 @@ class Partido{
 				equipo2->setP_p(equipo2->getP_p()+1);
 				equipo1->setG_f(equipo1->getG_f()+gol1);
 				equipo2->setG_c(equipo2->getG_c()+gol1);
+				equipo1->setPuntos(equipo1->getPuntos()+2);
 			}
 			
 			if(gol1<gol2){
@@ -46,13 +47,23 @@ class Partido{
 				equipo1->setP_p(equipo1->getP_p()+1);
 				equipo2->setG_f(equipo2->getG_f()+gol2);
 				equipo1->setG_c(equipo1->getG_c()+gol2);
+				equipo2->setPuntos(equipo2->getPuntos()+2);
 			}
 			
 			if(gol1==gol2){
 				cout<<"Empate"<<endl;
 				equipo1->setP_e(equipo1->getP_e()+1);
 				equipo2->setP_e(equipo2->getP_e()+1);
+				equipo1->setG_f(equipo1->getG_f()+gol1);
+				equipo2->setG_f(equipo2->getG_f()+gol2);
+				equipo1->setG_c(equipo1->getG_c()+gol2);
+				equipo2->setG_c(equipo2->getG_c()+gol1);
+				equipo1->setPuntos(equipo1->getPuntos()+1);
+				equipo2->setPuntos(equipo2->getPuntos()+1);
 			}
+			
+			equipo1->setD_g(equipo1->getG_f()-equipo1->getG_c());
+			equipo2->setD_g(equipo2->getG_f()-equipo2->getG_c());
 			
 		}
 		
