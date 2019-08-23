@@ -9,5 +9,12 @@
 using namespace std;
 
 int main(){
+	vector <Equipo*> equipos;
+	vector <Liga*> ligas;
+	vector <Jugador*> jugadores;
+	
+	int opc =0 ;
+	do{
+	}
 	return 0;
 }
