@@ -40,7 +40,7 @@ class Liga{
 			return this->equipos;
 		}
 		
-		void setEquipo(Equipo* equipo){
+		void addEquipo(Equipo* equipo){
 			equipos.push_back(equipo);
 		}
 		
@@ -54,6 +54,7 @@ class Liga{
 			for(int i=0; i<equipos.size(); i++){
 				cout<<"Num: "<<i<<endl;
 				cout<<equipos.at(i)->getNombre();
+				cout<<endl;
 			}
 		}
 		

@@ -65,6 +65,7 @@ class admLigas{
 						}//fin for de equipos de liga
 						
 			}//fin for ligas
+			escribir.close();
 		}
 		
 			

@@ -17,7 +17,7 @@ class Equipo{
 		Equipo(){
 		}
 		
-		Equipo(string nombre, int anio){
+		Equipo(string nombre, string anio){
 			this->nombre=nombre;
 			this->anio=anio;
 			p_j=0;//partidos jugados
@@ -123,7 +123,7 @@ class Equipo{
 			return this->jugadores;
 		}
 		
-		void setComputadora (Jugador* jugador){
+		void addJugador (Jugador* jugador){
 			jugadores.push_back(jugador);
 		}
 		

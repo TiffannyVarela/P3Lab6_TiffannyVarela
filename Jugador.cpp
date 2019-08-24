@@ -43,6 +43,12 @@ class Jugador{
 			this->pais_origen.assign(pais_origen);
 		}
 		
+		void printJugador(){
+			cout<<"Nombre: "<<nombre<<endl;
+			cout<<"Dorsal: "<<dorsal<<endl;
+			cout<<"Pais de Origen: "<<pais_origen<<endl;
+		}
+		
 		~Jugador(){
 		}
 };
