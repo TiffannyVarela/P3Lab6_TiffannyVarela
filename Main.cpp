@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <iomanip>
 
 #include "Liga.cpp"
 #include "Jugador.cpp"
@@ -18,6 +19,7 @@ void printJugadores(vector<Jugador*>&);
 void EliminarLiga(vector<Liga*>&);
 void EliminarEquipo(vector<Liga*>&,vector<Equipo*>&);
 void EliminarJugador(vector<Jugador*>&, vector<Equipo*>&, vector<Liga*>&);
+void printTabla(vector<Liga*>&, int);
 
 int main(){
 	vector <Equipo*> equipos;
@@ -142,7 +144,7 @@ int main(){
 								
 							case 2:
 								//printJugadores(jugadores);
-								//EliminarJugador(jugadores,equipos,ligas);
+								//EliminarJugador(jugadores,equipos,ligas);//NO FUNCIONA O DA ERROR
 								printJugadores(jugadores);
 								break;
 					}
@@ -151,6 +153,7 @@ int main(){
 				break;
 				
 			case 4:
+				printLigas(ligas);
 				cout<<"Ingrese Posicion Liga 1: ";
 				cin>>pos;
 				if(pos<ligas.size()){
@@ -161,6 +164,7 @@ int main(){
 				}
 				pos=0;
 				pos2=0;
+				printLigas(ligas);
 				cout<<"Ingrese Posicion Liga 2: ";
 				cin>>pos;
 				if(pos<ligas.size()){
@@ -174,16 +178,21 @@ int main(){
 				break;
 				
 			case 5:
+				
+				break;
+				
+			case 6:
 				for(int i=0; i<ligas.size(); i++){
 					adm.addLiga(ligas.at(i));
 				}
 				adm.Escribir();
-				break;
-				
-			case 6:
+				adm.getLigas().clear();//tratar de borrar el vector
 				break;
 				
 			case 7:
+				printLigas(ligas);
+				cout<<"Ingrese Posicion Liga: ";
+				cin>>pos;
 				break;
 				
 			case 8:
@@ -246,7 +255,7 @@ int menu2(){
 		cout<<"MENU"<<endl
 			<<"1.-Agregar Nuevo"<<endl
 			<<"2.-Eliminar"<<endl
-			<<"3.-Salir"<<endl;
+			<<"3.-Regresar Al Menu Principal"<<endl;
 			
 		cout<<"Ingrese una opcion: ";
 		cin>>opc;
@@ -361,3 +370,11 @@ void EliminarJugador(vector <Jugador*> jugadores, vector <Equipo*>& equipo,vecto
 	}
 }
 
+void printTabla(vector<Liga*>& l, int x){
+	if(x<l.size()){
+		cout<<setw(10)
+	}
+	else{
+		cout<<"Posicion no Valida"<<endl;
+	}
+}
