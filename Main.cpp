@@ -174,6 +174,10 @@ int main(){
 				break;
 				
 			case 5:
+				for(int i=0; i<ligas.size(); i++){
+					adm.addLiga(ligas.at(i));
+				}
+				adm.Escribir();
 				break;
 				
 			case 6:
@@ -197,6 +201,12 @@ int main(){
 				if(!equipos.empty()){
 					equipos.clear();
 				}
+				
+				//adm->~admLigas();
+				equipo->~Equipo();
+				jugador->~Jugador();
+				liga->~Liga();
+				partido->~Partido();
 				
 				cout<<"Saliendo"<<endl;
 				break;

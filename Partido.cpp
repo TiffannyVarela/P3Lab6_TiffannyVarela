@@ -65,6 +65,8 @@ class Partido{
 			
 		}
 		
+		~Partido(){
+		}
 		
 };
 
