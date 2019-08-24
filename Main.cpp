@@ -6,6 +6,7 @@
 #include "Jugador.cpp"
 #include "Equipo.cpp"
 #include "admLigas.cpp"
+#include "Partido.cpp"
 
 using namespace std;
 
@@ -39,6 +40,11 @@ int main(){
 	
 	string nombreJ, dorsalJ, paisJ;
 	int pos2;
+	
+	Partido* partido;
+	Equipo* e1;
+	Equipo* e2;
+	int pos3;
 	
 	do{
 		switch(opc=menu()){
@@ -136,7 +142,7 @@ int main(){
 								
 							case 2:
 								//printJugadores(jugadores);
-								EliminarJugador(jugadores,equipos,ligas);
+								//EliminarJugador(jugadores,equipos,ligas);
 								printJugadores(jugadores);
 								break;
 					}
@@ -145,6 +151,26 @@ int main(){
 				break;
 				
 			case 4:
+				cout<<"Ingrese Posicion Liga 1: ";
+				cin>>pos;
+				if(pos<ligas.size()){
+					ligas.at(pos)->printLiga();
+					cout<<"Ingrese Posicion Equipo 1: ";
+					cin>>pos2;
+					e1=ligas.at(pos)->getEquipos().at(pos2);
+				}
+				pos=0;
+				pos2=0;
+				cout<<"Ingrese Posicion Liga 2: ";
+				cin>>pos;
+				if(pos<ligas.size()){
+					ligas.at(pos)->printLiga();
+					cout<<"Ingrese Posicion Equipo 2: ";
+					cin>>pos2;
+					e2=ligas.at(pos)->getEquipos().at(pos2);
+				}	
+				partido = new Partido(e1,e2);
+				partido->jugar();	
 				break;
 				
 			case 5:
@@ -224,7 +250,6 @@ int menu2(){
 	return 0;
 }
 
-
 void printLigas(vector <Liga*>& l){
 	cout<<endl;
 	for(int i=0; i<l.size(); i++){
@@ -234,7 +259,6 @@ void printLigas(vector <Liga*>& l){
 		cout<<endl;
 	}
 }
-
 
 void EliminarLiga(vector <Liga*>& ligas){
 	int pos;
@@ -258,7 +282,6 @@ void printEquipos(vector <Equipo*>& l){
 		cout<<endl;
 	}
 }
-
 
 void EliminarEquipo(vector <Liga*>& ligas, vector <Equipo*>& equipo){
 	printLigas(ligas);
@@ -296,7 +319,6 @@ void printJugadores(vector <Jugador*>& l){
 		cout<<endl;
 	}
 }
-
 
 void EliminarJugador(vector <Jugador*> jugadores, vector <Equipo*>& equipo,vector <Liga*>& ligas){
 	printLigas(ligas);

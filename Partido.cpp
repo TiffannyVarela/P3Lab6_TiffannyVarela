@@ -21,7 +21,7 @@ class Partido{
 			equipo2=_equipo2;
 		}
 		
-		jugar(){
+		void jugar(){
 			int gol1, gol2;
 			
 			gol1=0+rand()%20;
