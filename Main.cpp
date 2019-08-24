@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <bits/stdc++.h>
 #include <iomanip>
 
 #include "Liga.cpp"
@@ -193,6 +194,7 @@ int main(){
 				printLigas(ligas);
 				cout<<"Ingrese Posicion Liga: ";
 				cin>>pos;
+				printTabla(ligas, pos);//teorico
 				break;
 				
 			case 8:
@@ -371,8 +373,47 @@ void EliminarJugador(vector <Jugador*> jugadores, vector <Equipo*>& equipo,vecto
 }
 
 void printTabla(vector<Liga*>& l, int x){
+	int n=l.at(x)->getEquipos().size();
+	int A[n];
+	int aux;
+	int cont=1;
+	int cont2=0;
 	if(x<l.size()){
-		cout<<setw(10)
+		
+		for(int i=1; i<=n; i++){
+			A[i]=l.at(x)->getEquipos().at(i)->getPuntos();
+		}
+		cout<<setw(20)<<"Equipo"<<setw(20)<<"PJ"<<setw(20)<<"PG"<<setw(20)<<"PE"<<setw(20)<<"PP"<<setw(20)<<"GF"<<setw(20)<<"GC"<<setw(20)<<"DG"<<setw(20)<<"PTS"<<endl;
+		for(int i=0; i<l.at(x)->getEquipos().size(); i++){
+			//sort(l.at(x)->getEquipos().at(i)->getPuntos().begin(), l.at(x)->getEquipos().at(i)->getPuntos().end());
+			for(int j=0; j<n-1; j++){
+				for( int k=0; k<n-1; k++){
+					if(A[j]>A[k+1]){
+						aux=A[k];
+						A[k]=A[k+1];
+						A[k+1]=aux;	
+					}
+				}
+			}
+		}
+		
+		for(int z=n; z>=1; z--){
+			if(A[z]==l.at(x)->getEquipos().at(cont2)->getPuntos())
+			{
+				cout<<cont<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getNombre()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getP_j()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getP_g()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getP_e()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getP_p()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getG_f()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getG_c()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getD_g()
+				<<setw(10)<<l.at(x)->getEquipos().at(cont2)->getPuntos()<<endl;
+				cont++;
+			}
+			cont2++;
+		}
+		
 	}
 	else{
 		cout<<"Posicion no Valida"<<endl;
