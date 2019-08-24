@@ -16,7 +16,7 @@ void printEquipos(vector<Equipo*>&);
 void printJugadores(vector<Jugador*>&);
 void EliminarLiga(vector<Liga*>&);
 void EliminarEquipo(vector<Liga*>&,vector<Equipo*>&);
-void EliminarJugador(vector<Jugador*>&);
+void EliminarJugador(vector<Jugador*>&, vector<Equipo*>&, vector<Liga*>&);
 
 int main(){
 	vector <Equipo*> equipos;
@@ -36,6 +36,10 @@ int main(){
 	string nombreL, paisL;
 	
 	string nombreE, anioE;
+	
+	string nombreJ, dorsalJ, paisJ;
+	int pos2;
+	
 	do{
 		switch(opc=menu()){
 			case 1:
@@ -87,7 +91,8 @@ int main(){
 								
 							case 2:
 								//printEquipos(equipos);
-								EliminarEquipo(ligas,equipos);						
+								EliminarEquipo(ligas,equipos);
+								printEquipos(equipos);						
 								break;
 						}
 					}while(opc2!=3);
@@ -99,13 +104,43 @@ int main(){
 					cout<<"Ingrese Equipos Para Ingresar Jugadores"<<endl;
 				}
 				else{
-					switch (opc2=menu2()){
-					case 1:
-						break;
-						
-					case 2:
-						break;
+					do{
+						switch (opc2=menu2()){
+							case 1:
+								cout<<"Nombre Jugador: ";
+								cin>>nombreJ;
+								cout<<"Dorsal: ";
+								cin>>dorsalJ;
+								cout<<"Pais de Origen: ";
+								cin>>paisJ;
+								jugador = new Jugador(nombreJ, dorsalJ, paisJ);
+								jugadores.push_back(jugador);
+								printLigas(ligas);
+								cout<<"Ingrese Posicion de la liga: ";
+								cin>>pos;
+								if(pos<ligas.size()){
+									ligas.at(pos)->printLiga();
+									cout<<"Ingrese Posicion del equipo: ";
+									cin>>pos2;
+									if(pos2<ligas.at(pos)->getEquipos().size()){
+										ligas.at(pos)->getEquipos().at(pos2)->addJugador(jugador);
+									}
+									else{
+										cout<<"Posicion No Valida"<<endl;
+									}
+								}
+								else{
+									cout<<"Posicion No Valida"<<endl;
+								}
+								break;
+								
+							case 2:
+								//printJugadores(jugadores);
+								EliminarJugador(jugadores,equipos,ligas);
+								printJugadores(jugadores);
+								break;
 					}
+					}while(opc2!=3);
 				}
 				break;
 				
@@ -243,6 +278,50 @@ void EliminarEquipo(vector <Liga*>& ligas, vector <Equipo*>& equipo){
 			}
 			
 			ligas.at(pos)->remEquipo(pos2);
+		}
+	}
+	else{
+		cout<<"Posicion No Valida"<<endl;
+	}
+}
+
+void printJugadores(vector <Jugador*>& l){
+	cout<<endl;
+	for(int i=0; i<l.size(); i++){
+		cout<<"Pos. Jugadores: "<<i<<endl;
+		for(int j=0; j<l.size(); j++){
+			l.at(i)->printJugador();
+		}
+		cout<<endl;
+		cout<<endl;
+	}
+}
+
+
+void EliminarJugador(vector <Jugador*> jugadores, vector <Equipo*>& equipo,vector <Liga*>& ligas){
+	printLigas(ligas);
+	int pos, pos2,pos3;
+	cout<<"Ingrese Posicion Liga: ";
+	cin>>pos;
+	if(pos<ligas.size()){
+		//printEquipos(equipo);
+		ligas.at(pos)->printLiga();
+		cout<<"Ingrese Posicion Equipo: ";
+		cin>>pos2;
+		if(pos2<ligas.at(pos)->getEquipos().size()){
+			ligas.at(pos)->getEquipos().at(pos2)->printEquipo();
+			cout<<"Ingrese Posicion Jugador: ";
+			cin>>pos3;
+			if(pos3<ligas.at(pos)->getEquipos().at(pos2)->getJugadores().size()){
+				for(int i=0; i<jugadores.size(); i++){
+					for(int j=0; j<ligas.at(pos)->getEquipos().at(pos2)->getJugadores().size(); j++){
+						if(jugadores.at(i)->getNombre() == ligas.at(pos)->getEquipos().at(pos2)->getJugadores().at(j)->getNombre()){
+							jugadores.erase(jugadores.begin()+i);
+						}
+					}
+				}
+				ligas.at(pos)->getEquipos().at(pos2)->remJugador(pos3);
+			}
 		}
 	}
 	else{

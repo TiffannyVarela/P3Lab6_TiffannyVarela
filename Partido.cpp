@@ -27,8 +27,6 @@ class Partido{
 			gol1=0+rand()%20;
 			gol2=0+rand()%20;
 			
-			equipo1->setGoles(gol1);
-			equipo2->setGoles(gol2);
 			equipo1->setP_j(equipo1->getP_j()+1);
 			equipo2->setP_j(equipo2->getP_j()+1);
 			
@@ -38,7 +36,7 @@ class Partido{
 				equipo2->setP_p(equipo2->getP_p()+1);
 				equipo1->setG_f(equipo1->getG_f()+gol1);
 				equipo2->setG_c(equipo2->getG_c()+gol1);
-				equipo1->setPuntos(equipo1->getPuntos()+2);
+				equipo1->setPuntos(equipo1->getPuntos()+3);
 			}
 			
 			if(gol1<gol2){
@@ -47,7 +45,7 @@ class Partido{
 				equipo1->setP_p(equipo1->getP_p()+1);
 				equipo2->setG_f(equipo2->getG_f()+gol2);
 				equipo1->setG_c(equipo1->getG_c()+gol2);
-				equipo2->setPuntos(equipo2->getPuntos()+2);
+				equipo2->setPuntos(equipo2->getPuntos()+3);
 			}
 			
 			if(gol1==gol2){
